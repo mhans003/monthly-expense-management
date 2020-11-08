@@ -28,8 +28,12 @@ app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+const htmlRoutes = require("./controllers/routes_controller.js");
+app.use(htmlRoutes);
+const userRoutes = require("./controllers/user_controller.js");
+app.use(userRoutes);
+
+//require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
