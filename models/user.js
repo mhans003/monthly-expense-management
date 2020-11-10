@@ -31,5 +31,8 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
+  // User.associate = function(models) {
+  //   models.User.hasMany(models.Subscription);
+  // };
   return User;
 };
