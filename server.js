@@ -32,6 +32,8 @@ const htmlRoutes = require("./controllers/routes_controller.js");
 app.use(htmlRoutes);
 const userRoutes = require("./controllers/user_controller.js");
 app.use(userRoutes);
+const subscriptionRoutes = require("./controllers/subscription_controller.js");
+app.use(subscriptionRoutes);
 
 //require("./routes/api-routes.js")(app);
 

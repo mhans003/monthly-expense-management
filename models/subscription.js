@@ -23,5 +23,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+  // Subscription.associate = function(models) {
+  //   models.Subscription.belongsTo(models.User);
+  // };
   return Subscription;
 };
