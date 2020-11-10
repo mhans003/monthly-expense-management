@@ -9,7 +9,14 @@ const db = require("../models");
 
 router.get("/api/subscription", (req, res) => {
   if (req.user) {
-    db.Subscription.findAll({}).then(data => {
+    console.log(req.user);
+    //Find all subscriptions for this user
+    db.User.findAll({
+      include: db.Subscription,
+      where: {
+        id: req.user.id
+      }
+    }).then(data => {
       console.log(data);
       res.render("members");
     });

@@ -26,5 +26,12 @@ module.exports = function(sequelize, DataTypes) {
   // Subscription.associate = function(models) {
   //   models.Subscription.belongsTo(models.User);
   // };
+  Subscription.associate = function(models) {
+    Subscription.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Subscription;
 };
