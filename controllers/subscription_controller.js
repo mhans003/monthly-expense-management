@@ -4,34 +4,36 @@ const router = express.Router();
 
 // Requiring our models and passport as we've configured it
 const db = require("../models");
-// const passport = require("../config/passport");
+// Requiring our custom middleware for checking if a user is logged in
+//const isAuthenticated = require("../config/middleware/isAuthenticated");
+//const passport = require("../config/passport");
 // const subscription = require("../models/subscription");
 
-router.get("/api/subscription", (req, res) => {
-  if (req.user) {
-    console.log(req.user);
-    //Find all subscriptions for this user
-    db.User.findAll({
-      include: db.Subscription,
-      where: {
-        id: req.user.id
-      }
-    }).then(data => {
-      console.log(data);
-      res.render("members");
+router.post("/api/subscription", (req, res) => {
+  const userId = Number(req.user.id);
+  db.Subscription.create(
+    {
+      name: req.body.name,
+      price: req.body.price,
+      frequency: req.body.frequency,
+      category: req.body.category,
+      UserId: userId
+    },
+    //Do we use include here? Cannot set userId directoly with req.user.id
+    //,
+    {
+      include: db.User
+    }
+  )
+    .then(() => {
+      console.log("in then block of post route");
+      //res.redirect("/");
+      res.end();
+    })
+    .catch(err => {
+      res.status(401).json(err);
+      console.log(err);
     });
-  } else {
-    res.redirect("/");
-  }
 });
 
-router.post("/api/subscription", req => {
-  db.Subscription.create(
-    ["name", "price", "frequency", "category"],
-    [req.body.name, req.body.price, req.body.frequency, req.body.category],
-    result => {
-      console.log(result);
-    }
-  );
-});
 module.exports = router;
