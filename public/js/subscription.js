@@ -56,6 +56,9 @@ $(document).ready(() => {
         console.log("in then block of js file");
         //window.location.replace("/");
         // If there's an error, handle it by throwing up a bootstrap alert
+
+        //Reload the page so that /members can be in charge of displaying/updating subscriptions for the user to view.
+        location.reload();
       })
       .catch(handleLoginErr);
   }

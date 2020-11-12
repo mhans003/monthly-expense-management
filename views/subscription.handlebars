@@ -40,5 +40,15 @@
     </div>
   </div>
 
+{{#each subscriptions }}
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{dataValues.name}}</h2>
+            <p class="card-text">{{dataValues.name}}</p>
+            <button class="btn btn-primary">TEST</button>
+        </div>
+    </div>
+{{/each}}
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/subscription.js"></script>
