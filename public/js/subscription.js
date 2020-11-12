@@ -5,6 +5,7 @@ $(document).ready(() => {
   const priceInput = $("input#subscription-price-input");
   const frequencyInput = $("input#subscription-frequency-input");
   const categoryInput = $("input#subscription-category-input");
+  const dateInput = $("input#subscription-date-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
   subscriptionForm.on("submit", event => {
@@ -13,14 +14,16 @@ $(document).ready(() => {
       name: nameInput.val().trim(),
       priceInput: priceInput.val().trim(),
       frequencyInput: frequencyInput.val().trim(),
-      categoryInput: categoryInput.val().trim()
+      categoryInput: categoryInput.val().trim(),
+      dateInput: dateInput.val().trim()
     };
 
     if (
       !userData.name ||
       !userData.priceInput ||
       !userData.frequencyInput ||
-      !userData.categoryInput
+      !userData.categoryInput ||
+      !userData.dateInput
     ) {
       return;
     }
@@ -29,22 +32,25 @@ $(document).ready(() => {
       userData.name,
       userData.priceInput,
       userData.frequencyInput,
-      userData.categoryInput
+      userData.categoryInput,
+      userData.dateInput
     );
     nameInput.val("");
     priceInput.val("");
     frequencyInput.val("");
     categoryInput.val("");
+    dateInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function newSubscription(name, price, frequency, category) {
+  function newSubscription(name, price, frequency, category, date) {
     $.post("/api/subscription", {
       name: name,
       price: price,
       frequency: frequency,
-      category: category
+      category: category,
+      withdrawalDate: date
     })
       .then(() => {
         console.log("in then block of js file");
