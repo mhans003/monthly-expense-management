@@ -38,15 +38,10 @@ router.post("/api/subscription", (req, res) => {
 });
 
 router.get("/budget", (req, res) => {
-  //Each time this route is rendered, we want to access the budget from the current
-  //user who is logged in via req.user. Then, these are passed as an array to budget.handlebars
-  //This will pass the budget information to the handlebars page to be rendered.
+  // this console log is showing
   console.log("in budget route");
+  // not reading totalExpense function
   console.log(db.Subscription.totalExpense());
-  // }).then(result => {
-  //   console.log(result);
-  //   res.render("budget", { subscriptions: result });
-  // });
 });
 
 module.exports = router;

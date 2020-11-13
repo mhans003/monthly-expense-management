@@ -1,4 +1,5 @@
 // Creating our subscription model
+// may not need this model, since we are just grabbing from the subscription table
 module.exports = function(sequelize, DataTypes) {
   const Budget = sequelize.define("Budget", {
     totalExpense: {
