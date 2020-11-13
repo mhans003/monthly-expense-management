@@ -38,5 +38,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
+  exports.totalExpense = () => {
+    Subscription.findAll({
+      attributes: [[sequelize.fn("sum", sequelize.col("price")), "total"]],
+      group: ["UserId"]
+    });
+    console.log("expenses being calculated");
+  };
   return Subscription;
 };
