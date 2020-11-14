@@ -38,10 +38,16 @@ router.post("/api/subscription", (req, res) => {
 });
 
 router.get("/budget", (req, res) => {
+  db.Subscription.findAll({
+    attributes: [[db.sequelize.fn("sum", db.sequelize.col("price")), "total"]],
+    group: ["UserId"]
+  }).then(dbPost => {
+    res.json(dbPost);
+  });
   // this console log is showing
   console.log("in budget route");
   // not reading totalExpense function
-  console.log(db.Subscription.totalExpense());
+  // console.log(db.Subscription.totalExpense());
 });
 
 module.exports = router;

@@ -40,12 +40,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-  Subscription.totalExpense = () => {
-    Subscription.findAll({
-      attributes: [[sequelize.fn("sum", sequelize.col("price")), "total"]],
-      group: ["UserId"]
-    });
-    console.log("expenses being calculated");
-  };
+  // Subscription.totalExpense = () => {
+  //   Subscription.findAll({
+  //     attributes: [[sequelize.fn("sum", sequelize.col("price")), "total"]],
+  //     group: ["UserId"]
+  //   });
+  //   console.log("expenses being calculated");
+  // };
+  // console.log(Subscription.totalExpense());
   return Subscription;
 };
