@@ -1,3 +1,5 @@
+// const db = require(".");
+
 // Creating our subscription model
 module.exports = function(sequelize, DataTypes) {
   const Subscription = sequelize.define("Subscription", {

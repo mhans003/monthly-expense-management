@@ -37,4 +37,13 @@ router.post("/api/subscription", (req, res) => {
     });
 });
 
+router.get("/budget", (req, res) => {
+  db.Subscription.findAll({
+    attributes: [[db.sequelize.fn("sum", db.sequelize.col("price")), "total"]],
+    group: ["UserId"]
+  }).then(dbPost => {
+    res.json(dbPost);
+  });
+});
+
 module.exports = router;
