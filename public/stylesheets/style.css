@@ -2,3 +2,36 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+/* nav bar */
+.navbar-brand {
+  font-size: 2.5rem;
+}
+
+.bg-primary {
+  background-color: #0a3d62 !important;
+}
+
+/* sign up form container */
+.header {
+  color: #1e3799;
+  padding-top: 20px;
+}
+
+.container-fluid {
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-top: 3%;
+}
+
+/* media queries */
+@media screen and (max-width: 400px) {
+  ul.navbar-nav li a i {
+    text-align: center;
+    float: none;
+  }
+  nav.navbar a {
+    text-align: center;
+    float: none;
+  }
+}
