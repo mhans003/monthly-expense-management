@@ -2,3 +2,18 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+/* nav bar */
+.navbar-brand {
+  font-size: 2.5rem;
+}
+.bg-primary {
+  background-color: #0A3D62 !important;
+}
+.nav-link {
+  margin-right: 50px;
+}
+/* sign up form container */
+.header {
+  color: #1E3799;
+  padding-top: 20px;
+}
