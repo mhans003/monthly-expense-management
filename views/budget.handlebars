@@ -6,16 +6,34 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Create New Budget</h2>
+      <div id="budgetFields" class="col-md-6 col-md-offset-3">
+        <h2>Manage Subscriptions Budget</h2>
+        <h3>
+          Total Expenses: 
+          <span id="totalExpense">
+            {{#each budget}}
+              {{dataValues.expenses}}
+            {{/each}}
+          </span>
+        </h3>
         <form class="budget">
           <div class="form-group">
-            <label for="budget-name-input">Budget</label>
-            <input type="text" class="form-control" id="budget-name-input" placeholder="Budget">
+            <label for="budget-name-input">Budget: Enter monthly spending amount</label>
+            <input type="number" class="form-control" id="budgetInput" placeholder="Budget">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button id="budgetBtn" type="button" class="btn btn-default">Submit</button>
         </form>
         <br />
+      </div>
+      <div class="col-md-6">
+        {{#each subscriptions }}
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{dataValues.name}}</h2>
+                    <p class="card-text">{{dataValues.price}}</p>
+                </div>
+            </div>
+        {{/each}}
       </div>
     </div>
   </div>
