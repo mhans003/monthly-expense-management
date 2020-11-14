@@ -3,25 +3,43 @@ form.login {
   margin-top: 50px;
 }
 
+html {
+  background-color: hsl(29, 88%, 77%, 10%);
+}
+
 /* nav bar */
 .navbar-brand {
   font-size: 2.5rem;
 }
 
 .bg-primary {
-  background-color: #0a3d62 !important;
+  background-color: #1e3799 !important;
+  /* background-color: rgb(10, 61, 97) !important; */
 }
 
 /* sign up form container */
 .header {
-  color: #1e3799;
+  color: #28407b;
   padding-top: 20px;
 }
 
 .container-fluid {
   padding-left: 5%;
   padding-right: 5%;
-  margin-top: 3%;
+  padding-top: 3%;
+  background-color: hsl(29, 88%, 77%, 10%);
+}
+
+.container-fluid .row .logIn {
+
+}
+
+div.col-md-6 form input {
+  width: 500px;
+}
+
+div.col-md-6 p a {
+  color: #0652DD;
 }
 
 /* media queries */
