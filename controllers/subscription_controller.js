@@ -44,10 +44,6 @@ router.get("/budget", (req, res) => {
   }).then(dbPost => {
     res.json(dbPost);
   });
-  // this console log is showing
-  console.log("in budget route");
-  // not reading totalExpense function
-  // console.log(db.Subscription.totalExpense());
 });
 
 module.exports = router;
