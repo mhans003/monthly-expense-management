@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary p-5">
+<nav class="navbar navbar-expand-lg navbar-expand navbar-dark bg-primary p-5">
   <a class="navbar-brand" href="#">Expense Trackr</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,39 +9,51 @@
         <a class="nav-link d-md-block" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-bars fa-3x" aria-hidden="true"></i>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Budget</a>
           <a class="dropdown-item" href="#">Subscriptions</a>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="/logout">Logout</a>
         </div>
       </li>
     </ul>
   </div>
 </nav>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 p-5 col-md-offset-3">
         <h2 class="header">Take back control of your life! Don't let your subscriptions control you, keep track of all your monthly expenses and be on top of your finances!</h2>
+        </br>
+        <h2 class="header">Sign up now to track your monthly subscriptions and manage your budget.</h2>      
       </div>
       <div class="col-md-6 p-5 col-md-offset-3">
         <h2 class="header">Sign Up Form</h2>
         <form class="signup">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label class="font-weight-bold" for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label class="font-weight-bold" for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
+          <button type="submit" class="btn btn-dark">Sign Up</button>
         </form>
         <br />
         <p>Or log in <a href="/login">here</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 p-5 col-md-offset-3">
+        <img src="/image1.jpg" class="img-fluid" alt="Responsive image">
+        </img>
+      </div>
+      <div class="col-md-6 p-5 col-md-offset-3">
       </div>
     </div>
   </div>

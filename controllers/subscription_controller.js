@@ -38,11 +38,26 @@ router.post("/api/subscription", (req, res) => {
 });
 
 router.get("/budget", (req, res) => {
+  // db.Subscription.create({
+  //   budget: req.body.budget
+  // });
+  //First add up the total expenses to be sent over.
   db.Subscription.findAll({
-    attributes: [[db.sequelize.fn("sum", db.sequelize.col("price")), "total"]],
+    attributes: [
+      [db.sequelize.fn("sum", db.sequelize.col("price")), "expenses"]
+    ],
     group: ["UserId"]
   }).then(dbPost => {
-    res.json(dbPost);
+    console.log("DbPost: " + dbPost);
+    //Next, get all subscriptions to be sent over.
+    db.Subscription.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(allSubscriptions => {
+      console.log("allSubscriptions: " + allSubscriptions);
+      res.render("budget", { subscriptions: allSubscriptions, budget: dbPost });
+    });
   });
 });
 

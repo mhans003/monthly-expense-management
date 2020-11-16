@@ -1,5 +1,7 @@
+
 {
   "development": {
+    "use_env_variable": 
     "username": "root",
     "password": "",
     "database": "passport_demo",
@@ -18,3 +20,4 @@
     "dialect": "mysql"
   }
 }
+

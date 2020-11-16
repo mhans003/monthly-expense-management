@@ -1,21 +1,53 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
-  <div class="container">
+<nav class="navbar navbar-expand-lg navbar-expand navbar-dark bg-primary p-5">
+  <a class="navbar-brand" href="#">Expense Trackr</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-bars fa-3x" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Budget</a>
+          <a class="dropdown-item" href="#">Subscriptions</a>
+          <a class="dropdown-item" href="/logout">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Create New Budget</h2>
+      <div id="budgetFields" class="col-md-6 col-md-offset-3">
+        <h2>Manage Subscriptions Budget</h2>
+        <h3>
+          Total Expenses: 
+          <span id="totalExpense">
+            {{#each budget}}
+              {{dataValues.expenses}}
+            {{/each}}
+          </span>
+        </h3>
         <form class="budget">
           <div class="form-group">
-            <label for="budget-name-input">Budget</label>
-            <input type="text" class="form-control" id="budget-name-input" placeholder="Budget">
+            <label for="budget-name-input">Budget: Enter monthly spending amount</label>
+            <input type="number" class="form-control" id="budgetInput" placeholder="Budget">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button id="budgetBtn" type="button" class="btn btn-dark">Submit</button>
         </form>
         <br />
+      </div>
+      <div class="col-md-6">
+        {{#each subscriptions }}
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{dataValues.name}}</h2>
+                    <p class="card-text">{{dataValues.price}}</p>
+                </div>
+            </div>
+        {{/each}}
       </div>
     </div>
   </div>
