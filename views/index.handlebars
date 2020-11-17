@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-expand navbar-dark bg-primary p-5">
-  <a class="navbar-brand" href="#">Expense Trackr</a>
+  <a class="navbar-brand" href="/members">
+    <span class="heavier">E</span><span class="lighter">xpense</span> 
+    <span class="heavier">T</span><span class="lighter">rack</span><span class="heavier">r</span>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,16 +23,16 @@
 </nav>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 p-5 col-md-offset-3">
-        <h2 class="header">Take back control of your life! Don't let your subscriptions control you, keep track of all your monthly expenses and be on top of your finances!</h2>
+      <div id="homepage-description" class="col-md-6 p-5 col-md-offset-3">
+        <h2 class="header lighter">Take back control of your life! Don't let your subscriptions control you, keep track of all your monthly expenses and be on top of your finances!</h2>
         </br>
-        <h2 class="header">Sign up now to track your monthly subscriptions and manage your budget.</h2>      
+        <h2 class="header lighter">Sign up now to track your monthly subscriptions and manage your budget.</h2>      
       </div>
-      <div class="col-md-6 p-5 col-md-offset-3">
-        <h2 class="header">Sign Up Form</h2>
+      <div id="sign-up-form" class="col-md-6 p-5 col-md-offset-3">
+        <h1 class="header lighter">Sign Up</h1>
         <form class="signup">
           <div class="form-group">
-            <label class="font-weight-bold" for="exampleInputEmail1">Email address</label>
+            <label class="font-weight-bold" for="exampleInputEmail1">Email Address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <div class="form-group">
@@ -40,22 +43,13 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-dark">Sign Up</button>
+          <button type="submit" class="btn btn-dark btn-block btn-md-inline mt-4">Sign Up</button>
         </form>
         <br />
-        <p>Or log in <a href="/login">here</a></p>
+        <p>Or log in <a href="/login">here</a>.</p>
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6 p-5 col-md-offset-3">
-        <img src="/image1.jpg" class="img-fluid" alt="Responsive image">
-        </img>
-      </div>
-      <div class="col-md-6 p-5 col-md-offset-3">
-      </div>
-    </div>
-  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/signup.js"></script>

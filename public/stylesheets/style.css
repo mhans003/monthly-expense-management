@@ -1,6 +1,14 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
+}
+
+.login {
+  max-width: 500px;
 }
 /* nav bar */
 .navbar-brand {
@@ -13,8 +21,13 @@ form.login {
   margin-right: 50px;
 }
 /* sign up form container */
+
+#homepage-description {
+  background-color: rgba(10,61,98,0.04);
+}
+
 .header {
-  color: #1E3799;
+  color: #09174d;
   padding-top: 20px;
 }
 
@@ -31,4 +44,32 @@ form.login {
 
 #balanceDiv, #totalExpenseDiv {
   font-size: 1.25rem;
+}
+
+/*Buttons*/
+
+.btn-dark {
+  background-color: rgba(10,61,98,0.9);
+}
+
+/*Forms*/
+
+.form-group {
+  letter-spacing: 1.5px;
+}
+
+/*Font Weights*/
+
+.heavier {
+  font-weight: 500;
+}
+
+.lighter {
+  font-weight: 200;
+}
+
+@media screen and (max-width: 767px) {
+  #sign-up-form {
+    margin-top: -55px;
+  }
 }
