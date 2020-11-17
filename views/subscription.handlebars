@@ -33,11 +33,25 @@
           </div>
           <div class="form-group">
             <label for="subscription-frequency-input">Frequency</label>
-            <input type="text" class="form-control" id="subscription-frequency-input" placeholder="Frequency">
+            <select id="subscription-frequency-input" class="custom-select form-control">
+              <option selected>Choose Frequency...</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Annually">Annually</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="subscription-category-input">Category</label>
-            <input type="text" class="form-control" id="subscription-category-input" placeholder="Category">
+            <select id="subscription-category-input" class="custom-select form-control">
+              <option selected>Choose Category...</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Retail">Retail</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Rent/Mortgage">Rent/Mortgage</option>
+              <option value="Health/Fitness">Health/Fitness</option>
+              <option value="Food/Grocery">Food/Grocery</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="subscription-date-input">Withdrawal Date</label>
@@ -58,7 +72,9 @@
     <div class="card">
         <div class="card-body">
             <h2 class="card-title">{{dataValues.name}}</h2>
-            <p class="card-text">{{dataValues.name}}</p>
+            <p class="card-text">${{dataValues.price}} ({{dataValues.frequency}})</p>
+            <p class="card-text">Withdrawal on the {{dataValues.withdrawalDate}}</p>
+            <p class="card-text">Category: {{dataValues.category}}</p>
             <button class="btn btn-primary">TEST</button>
         </div>
     </div>
