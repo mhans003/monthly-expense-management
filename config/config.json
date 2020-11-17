@@ -1,15 +1,17 @@
+
 {
   "development": {
+    "use_env_variable": 
     "username": "root",
-    "password": "ShortDoor!!22",
+    "password": "",
     "database": "passport_demo",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "",
+    "database": "passport_demo",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -18,3 +20,4 @@
     "dialect": "mysql"
   }
 }
+
