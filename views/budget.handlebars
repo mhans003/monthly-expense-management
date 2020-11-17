@@ -44,7 +44,9 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title">{{dataValues.name}}</h2>
-                    <p class="card-text">{{dataValues.price}}</p>
+                    <p class="card-text">${{dataValues.price}} ({{dataValues.frequency}})</p>
+                    <p class="card-text">Withdrawal on the {{dataValues.withdrawalDate}}</p>
+                    <p class="card-text">Category: {{dataValues.category}}</p>
                 </div>
             </div>
         {{/each}}

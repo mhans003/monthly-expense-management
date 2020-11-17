@@ -3,8 +3,8 @@ $(document).ready(() => {
   const subscriptionForm = $("form.subscription");
   const nameInput = $("input#subscription-name-input");
   const priceInput = $("input#subscription-price-input");
-  const frequencyInput = $("input#subscription-frequency-input");
-  const categoryInput = $("input#subscription-category-input");
+  const frequencyInput = $("select#subscription-frequency-input");
+  const categoryInput = $("select#subscription-category-input");
   const dateInput = $("input#subscription-date-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
