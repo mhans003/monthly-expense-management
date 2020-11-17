@@ -21,7 +21,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h2>Create New Subscription</h2>
+        <h2 class="my-3">Create New Subscription</h2>
         <form class="subscription">
           <div class="form-group">
             <label for="subscription-name-input">Subscription Name</label>
@@ -61,24 +61,24 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-dark">Submit</button>
+          <button type="submit" class="btn btn-dark mt-3">Submit</button>
         </form>
         <br />
       </div>
+      <div class="col-md-6">
+        {{#each subscriptions }}
+          <div class="card mx-auto my-3">
+            <h2 class="card-header">{{dataValues.name}}</h2>
+              <div class="card-body">
+                  <p class="card-text">${{dataValues.price}} ({{dataValues.frequency}})</p>
+                  <p class="card-text">Withdrawal on the {{dataValues.withdrawalDate}}</p>
+                  <p class="card-text">Category: {{dataValues.category}}</p>
+              </div>
+          </div>
+        {{/each}}
+      </div>
     </div>
   </div>
-
-{{#each subscriptions }}
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title">{{dataValues.name}}</h2>
-            <p class="card-text">${{dataValues.price}} ({{dataValues.frequency}})</p>
-            <p class="card-text">Withdrawal on the {{dataValues.withdrawalDate}}</p>
-            <p class="card-text">Category: {{dataValues.category}}</p>
-            <button class="btn btn-primary">TEST</button>
-        </div>
-    </div>
-{{/each}}
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/subscription.js"></script>

@@ -42,10 +42,10 @@ function outputResults(balance, totalExpense) {
   expenseSpan.classList.add("text-danger");
   expenseSpan.innerText = `$${totalExpense.toFixed(2)}`;
 
-  balanceDiv.innerHTML = "Amount left: ";
+  balanceDiv.innerHTML = "Remaining: ";
   balanceDiv.appendChild(balanceSpan);
 
-  totalExpenseDiv.innerHTML = "Amount Spent: ";
+  totalExpenseDiv.innerHTML = "Spent: ";
   totalExpenseDiv.appendChild(expenseSpan);
 
   //Append elements to page

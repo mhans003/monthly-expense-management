@@ -17,3 +17,18 @@ form.login {
   color: #1E3799;
   padding-top: 20px;
 }
+
+/*cards*/
+.card {
+  max-width: 300px;
+}
+
+.card-header {
+  background-color: rgba(10,61,98,0.2);
+}
+
+/*Balance Output*/
+
+#balanceDiv, #totalExpenseDiv {
+  font-size: 1.25rem;
+}
