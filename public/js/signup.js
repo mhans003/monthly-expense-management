@@ -36,7 +36,12 @@ $(document).ready(() => {
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    console.log(err.status);
+    if (err.status === 401) {
+      $("#alert .msg").text("Incorrect email or password.");
+    } else {
+      $("#alert .msg").text("Oops! Something went wrong. Please try again.");
+    }
     $("#alert").fadeIn(500);
   }
 });

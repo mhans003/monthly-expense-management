@@ -32,8 +32,16 @@ $(document).ready(() => {
         window.location.replace("/members");
         // If there's an error, log the error
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(handleLoginErr);
+  }
+
+  function handleLoginErr(err) {
+    console.log(err.status);
+    if (err.status === 401) {
+      $("#alert .msg").text("Incorrect email or password.");
+    } else {
+      $("#alert .msg").text("Oops! Something went wrong. Please try again.");
+    }
+    $("#alert").fadeIn(500);
   }
 });
