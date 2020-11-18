@@ -11,7 +11,7 @@ module.exports = {
   test: {
     username: "root",
     password: "",
-    database: "passport_demo",
+    database: "passport_db",
     host: "127.0.0.1",
     dialect: "mysql"
   },
