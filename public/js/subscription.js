@@ -45,12 +45,14 @@ $(document).ready(() => {
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function newSubscription(name, price, frequency, category, date) {
+    const dateOutput = getDateOutput(date);
     $.post("/api/subscription", {
       name: name,
       price: price,
       frequency: frequency,
       category: category,
-      withdrawalDate: date
+      withdrawalDate: date,
+      withdrawalDateOutput: dateOutput
     })
       .then(() => {
         console.log("in then block of js file");
@@ -66,5 +68,11 @@ $(document).ready(() => {
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
+  }
+
+  function getDateOutput(date) {
+    // eslint-disable-next-line prettier/prettier
+    const dateOutput = (date % 10 === 1 && date !== "11") ? "st" : (date % 10 === 2 && date !== "12") ? "nd" : (date % 10 === 3 && date !== "13") ? "rd" : "th";
+    return dateOutput;
   }
 });

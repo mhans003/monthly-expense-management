@@ -18,6 +18,7 @@ router.post("/api/subscription", (req, res) => {
       frequency: req.body.frequency,
       category: req.body.category,
       withdrawalDate: req.body.withdrawalDate,
+      withdrawalDateOutput: req.body.withdrawalDateOutput,
       UserId: userId
     },
     //Do we use include here? Cannot set userId directoly with req.user.id
