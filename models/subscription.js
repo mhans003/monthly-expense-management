@@ -28,6 +28,10 @@ module.exports = function(sequelize, DataTypes) {
       //Change this to a date type; Adjust client-side user date selection.
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    withdrawalDateOutput: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
   // Subscription.associate = function(models) {
