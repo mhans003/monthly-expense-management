@@ -10,9 +10,15 @@ form.login {
 .login {
   max-width: 500px;
 }
-/* nav bar */
+
+/* Headings */
+
+h2 {
+  font-size: 2.4rem;
+}
+
 .navbar-brand {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 .bg-primary {
   background-color: #0A3D62 !important;
@@ -20,24 +26,29 @@ form.login {
 .nav-link {
   margin-right: 50px;
 }
-/* sign up form container */
 
-#homepage-description {
-  background-color: rgba(10,61,98,0.04);
-}
+/* sign up form container */
 
 .header {
   color: #09174d;
   padding-top: 20px;
 }
 
+.note {
+  font-size: 1.5rem;
+  font-weight: 300 !important;
+}
+
 /*cards*/
 .card {
-  max-width: 300px;
+  max-width: 500px;
+  border-color: #0A3D62;
 }
 
 .card-header {
-  background-color: rgba(10,61,98,0.2);
+  /*background-color: rgba(10,61,98,0.2);*/
+  background-color: #0A3D62;
+  color: #fff;
 }
 
 /*Balance Output*/
@@ -50,12 +61,22 @@ form.login {
 
 .btn-dark {
   background-color: rgba(10,61,98,0.9);
+  border: none;
+}
+
+.btn-danger {
+  background-color: rgba(10,61,98,0.9);
+  border: none;
 }
 
 /*Forms*/
 
+label {
+  font-size: 1.2rem;
+}
+
 .form-group {
-  letter-spacing: 1.5px;
+  letter-spacing: 1.3px;
 }
 
 /*Font Weights*/
@@ -66,6 +87,19 @@ form.login {
 
 .lighter {
   font-weight: 200;
+}
+
+/*Backgrounds*/
+
+.darker-background {
+  background-color: rgba(10,61,98,0.04);
+}
+
+/*Other Elements*/
+
+hr {
+  background-color: #0A3D62;
+  opacity: 0.3;
 }
 
 @media screen and (max-width: 767px) {
