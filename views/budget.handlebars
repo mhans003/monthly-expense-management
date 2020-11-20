@@ -48,15 +48,7 @@
       <div class="col-md-6">
         {{#each subscriptions }}
           <div class="card mx-auto my-3">
-            <h2 class="card-header lighter">
-              <span>
-                {{dataValues.name}}
-              </span>
-              <span class="float-right">
-                <button type="button" class="btn btn-lg btn-dark"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-lg btn-danger"><i class="fas fa-trash-alt"></i></button>
-              </span>
-            </h2>
+            <h2 class="card-header lighter text-center">{{dataValues.name}}</h2>
             <div class="card-body">
                 <h2 class="card-text font-weight-normal text-center text-muted">${{dataValues.price}}</h2>
                 <hr>

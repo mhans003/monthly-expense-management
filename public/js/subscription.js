@@ -6,6 +6,7 @@ $(document).ready(() => {
   const frequencyInput = $("select#subscription-frequency-input");
   const categoryInput = $("select#subscription-category-input");
   const dateInput = $("input#subscription-date-input");
+  const deleteSubscriptionButton = $(".delete-subscription-button");
 
   // When the signup button is clicked, we validate the email and password are not blank
   subscriptionForm.on("submit", event => {
@@ -64,6 +65,29 @@ $(document).ready(() => {
       })
       .catch(handleLoginErr);
   }
+
+  //Sends PUT request to /subscriptions with subscription ID.
+
+  //Sends DELETE(destroy) request to /subscriptions with subscription ID.
+  deleteSubscriptionButton.on("click", event => {
+    //Get the data to be sent over.
+    //If the user clicks directly on the icon, go above to the button element to access subscription id.
+    //Otherwise, get it from this element that was clicked (the button).
+    const requestData = {
+      // eslint-disable-next-line prettier/prettier
+      id: event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.getAttribute("data-subscription-id") : event.target.getAttribute("data-subscription-id")
+    };
+
+    //Send the delete request, and when it is complete, reload the page.
+    $.ajax({
+      url: "/api/subscription",
+      type: "DELETE",
+      data: requestData
+    }).then(() => {
+      console.log("done");
+      location.reload();
+    });
+  });
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
