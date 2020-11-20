@@ -77,14 +77,14 @@
                 {{dataValues.name}}
               </span>
               <span class="float-right">
-                <button data-subscription-id={{dataValues.id}} type="button" class="btn btn-lg btn-dark edit-subscription-button"><i class="fas fa-edit"></i></button>
+                <button data-subscription-id={{dataValues.id}} type="button" class="btn btn-lg btn-dark edit-subscription-button" data-toggle="modal" data-target="#edit-modal"><i class="fas fa-edit"></i></button>
                 <button data-subscription-id={{dataValues.id}} type="button" class="btn btn-lg btn-danger delete-subscription-button" data-toggle="modal" data-target="#delete-modal"><i class="fas fa-trash-alt"></i></button>
               </span>
             </h2>
             <div class="card-body">
                 <h2 class="card-text font-weight-normal text-center text-muted">${{dataValues.price}}</h2>
                 <hr>
-                <h4 class="card-text font-weight-normal text-center text-muted">Withdrawal: <i>{{dataValues.withdrawalDate}}{{dataValues.withdrawalDateOutput}} ({{dataValues.frequency}})</i></h4>
+                <h4 class="card-text font-weight-normal text-center text-muted">Withdrawal: <i><span>{{dataValues.withdrawalDate}}</span>{{dataValues.withdrawalDateOutput}} (<span>{{dataValues.frequency}}</span>)</i></h4>
                 <hr>
                 <h4 class="card-text font-weight-normal text-center text-muted"><i>{{dataValues.category}}</i></h4>
             </div>
@@ -107,9 +107,62 @@
               <div class="modal-body text-center">
                   <p id="confirm-delete-output" class="note">Are you sure you want to delete the subscription for <span id="subscription-name-to-delete" class="text-muted heavier"></span>?</p>
                   <div class="form-group text-center">
-                      <button type="button" class="btn btn-lg btn-dark" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+                      <button type="button" class="btn btn-lg btn-secondary" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
                       <button id="confirm-delete-button" type="button" class="btn btn-lg btn-danger btn-stay-danger">Delete</button>
                   </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modal-label" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <section class="modal-header">
+                  <h2 class="modal-title lighter" id="edit-modal-label"><span id="subscription-name-to-edit" class="text-muted heavier"></span> - Edit</h2>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </section>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label class="heavier" for="subscription-price-edit-input">Price</label>
+                  <input type="number" step="0.01" class="form-control form-control-lg" id="subscription-price-edit-input" placeholder="Price">
+                </div>
+                <div class="form-group">
+                  <label class="heavier" for="subscription-frequency-edit-input">Frequency</label>
+                  <select id="subscription-frequency-edit-input" class="form-control form-control-lg">
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Annually">Annually</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="heavier" for="subscription-category-edit-input">Category</label>
+                  <select id="subscription-category-edit-input" class="form-control form-control-lg">
+                    <option selected>Choose Category...</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Retail">Retail</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Rent/Mortgage">Rent/Mortgage</option>
+                    <option value="Health/Fitness">Health/Fitness</option>
+                    <option value="Food/Grocery">Food/Grocery</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="heavier" for="subscription-date-edit-input">Withdrawal Date</label>
+                  <input type="number" min="1" max="31" class="form-control form-control-lg" id="subscription-date-edit-input" placeholder="Withdrawal Date">
+                </div>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <div class="form-group text-center">
+                  <button type="button" class="btn btn-lg btn-secondary" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+                  <button id="confirm-edit-button" type="button" class="btn btn-lg btn-dark">Submit</button>
+                </div>
               </div>
           </div>
       </div>
