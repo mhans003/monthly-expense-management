@@ -38,6 +38,26 @@ router.post("/api/subscription", (req, res) => {
     });
 });
 
+//Delete the subscription using the id of the subscription, sent over by the button for that subscription card.
+router.delete("/api/subscription", (req, res) => {
+  //console.log("id clicked was " + JSON.stringify(req.body));
+  console.log(req.body.id);
+  db.Subscription.destroy({
+    where: {
+      id: req.body.id
+    }
+  })
+    .then(result => {
+      console.log(`Deleted ${result}`);
+      //End the request so that location.reload will run in then block of ajax request in susbscription.js
+      res.end();
+    })
+    .catch(err => {
+      res.status(401).json(err);
+      console.log(err);
+    });
+});
+
 router.get("/budget", (req, res) => {
   // db.Subscription.create({
   //   budget: req.body.budget
