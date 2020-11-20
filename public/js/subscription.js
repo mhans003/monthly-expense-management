@@ -7,6 +7,8 @@ $(document).ready(() => {
   const categoryInput = $("select#subscription-category-input");
   const dateInput = $("input#subscription-date-input");
   const deleteSubscriptionButton = $(".delete-subscription-button");
+  const confirmDeleteButton = $("#confirm-delete-button");
+  const subscriptionNameToDelete = $("#subscription-name-to-delete");
 
   // When the signup button is clicked, we validate the email and password are not blank
   subscriptionForm.on("submit", event => {
@@ -66,16 +68,26 @@ $(document).ready(() => {
       .catch(handleLoginErr);
   }
 
+  deleteSubscriptionButton.on("click", event => {
+    //Set attribute value of confirm delete button and put text into modal.
+    // eslint-disable-next-line prettier/prettier
+    const nameToDelete = event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.parentNode.previousElementSibling.innerText : event.target.parentNode.previousElementSibling.innerText;
+    // eslint-disable-next-line prettier/prettier
+    const idToDelete = event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.getAttribute("data-subscription-id") : event.target.getAttribute("data-subscription-id"); 
+    //Output the subscription name in the modal.
+    subscriptionNameToDelete.text(nameToDelete);
+    //Create/Set the data-subscription-id attribute to the id of the subscription to be deleted for the confirm button.
+    confirmDeleteButton.attr("data-subscription-id", idToDelete);
+  });
+
   //Sends PUT request to /subscriptions with subscription ID.
 
   //Sends DELETE(destroy) request to /subscriptions with subscription ID.
-  deleteSubscriptionButton.on("click", event => {
+  confirmDeleteButton.on("click", event => {
     //Get the data to be sent over.
-    //If the user clicks directly on the icon, go above to the button element to access subscription id.
-    //Otherwise, get it from this element that was clicked (the button).
     const requestData = {
       // eslint-disable-next-line prettier/prettier
-      id: event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.getAttribute("data-subscription-id") : event.target.getAttribute("data-subscription-id")
+      id: event.target.getAttribute("data-subscription-id")
     };
 
     //Send the delete request, and when it is complete, reload the page.

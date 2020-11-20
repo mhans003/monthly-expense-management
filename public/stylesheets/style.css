@@ -69,6 +69,10 @@ h2 {
   border: none;
 }
 
+.btn-stay-danger {
+  background-color: rgb(217,83,79) !important;
+}
+
 /*Forms*/
 
 label {

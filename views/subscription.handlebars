@@ -78,7 +78,7 @@
               </span>
               <span class="float-right">
                 <button data-subscription-id={{dataValues.id}} type="button" class="btn btn-lg btn-dark edit-subscription-button"><i class="fas fa-edit"></i></button>
-                <button data-subscription-id={{dataValues.id}} type="button" class="btn btn-lg btn-danger delete-subscription-button"><i class="fas fa-trash-alt"></i></button>
+                <button data-subscription-id={{dataValues.id}} type="button" class="btn btn-lg btn-danger delete-subscription-button" data-toggle="modal" data-target="#delete-modal"><i class="fas fa-trash-alt"></i></button>
               </span>
             </h2>
             <div class="card-body">
@@ -92,6 +92,27 @@
         {{/each}}
       </div>
     </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modal-label" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <section class="modal-header">
+                  <h2 class="modal-title lighter" id="delete-modal-label">Confirm Delete</h2>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </section>
+              <div class="modal-body text-center">
+                  <p id="confirm-delete-output" class="note">Are you sure you want to delete the subscription for <span id="subscription-name-to-delete" class="text-muted heavier"></span>?</p>
+                  <div class="form-group text-center">
+                      <button type="button" class="btn btn-lg btn-dark" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+                      <button id="confirm-delete-button" type="button" class="btn btn-lg btn-danger btn-stay-danger">Delete</button>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
