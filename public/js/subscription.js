@@ -84,33 +84,30 @@ $(document).ready(() => {
   });
 
   editSubscriptionButton.on("click", event => {
-    //Set attribute value of confirm edit button and pre-fill modal form fields.
-    // eslint-disable-next-line prettier/prettier
-    const nameToEdit = event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.parentNode.previousElementSibling.innerText : event.target.parentNode.previousElementSibling.innerText;
+    //Get the id for this card to be edited.
     // eslint-disable-next-line prettier/prettier
     const idToEdit = event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.getAttribute("data-subscription-id") : event.target.getAttribute("data-subscription-id");
-    subscriptionNameToEdit.text(nameToEdit);
-    confirmEditButton.attr("data-subscription-id", idToEdit);
 
-    //Depending on whether the button or icon is clicked in the edit button, grab the price to be edited and remove the $ before appending to the input edit form field, including placeholder.
-    // eslint-disable-next-line prettier/prettier
-    const priceToEdit = event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.innerText.substr(1) : event.target.parentNode.parentNode.nextElementSibling.firstElementChild.innerText.substr(1);
+    //From this subscription card, get all the data values that correspond to this subscription.
+    const thisCardElement = $(`#card${idToEdit}`);
+    const nameToEdit = thisCardElement.attr("data-name");
+    const priceToEdit = thisCardElement.attr("data-price");
+    const frequencyToEdit = thisCardElement.attr("data-frequency");
+    const categoryToEdit = thisCardElement.attr("data-category");
+    const withdrawalToEdit = thisCardElement.attr("data-withdrawalDate");
+
+    //Put the name into the card header.
+    subscriptionNameToEdit.text(nameToEdit);
+
+    //Fill in the form input vales and placeholders.
     $("#subscription-price-edit-input").val(priceToEdit);
     $("#subscription-price-edit-input").attr("placeholder", priceToEdit);
-    //Depending on whether the button or icon is clicked in the edit button, grab the frequency from the card and make this the default selected option.
-    // eslint-disable-next-line prettier/prettier
-    const frequencyToEdit = event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.innerText : event.target.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.innerText;
     $("#subscription-frequency-edit-input").val(frequencyToEdit);
-
-    //Now, repeat this process for category, accessing the appropriate element in the card.
-    // eslint-disable-next-line prettier/prettier
-    const categoryToEdit = event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.innerText : event.target.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.innerText;
     $("#subscription-category-edit-input").val(categoryToEdit);
-
-    //Finally, repeat process for withdrawal date.
-    // eslint-disable-next-line prettier/prettier
-    const withdrawalToEdit = event.target.getAttribute("data-subscription-id") === null ? event.target.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerText : event.target.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerText;
     $("#subscription-date-edit-input").val(withdrawalToEdit);
+
+    //Set the attribute for the confirm button to hold this id to be sent over to the db.
+    confirmEditButton.attr("data-subscription-id", idToEdit);
   });
 
   //Sends PUT request to /subscriptions with subscription ID.

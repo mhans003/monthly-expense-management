@@ -71,7 +71,7 @@
       </div>
       <div class="col-md-6">
         {{#each subscriptions }}
-          <div class="card mx-auto my-3">
+          <div id="card{{dataValues.id}}" class="card mx-auto my-3" data-id={{dataValues.id}} data-name={{dataValues.name}} data-price={{dataValues.price}} data-category={{dataValues.category}} data-frequency={{dataValues.frequency}} data-withdrawalDate={{dataValues.withdrawalDate}} data-withdrawalDateOutput={{dataValues.withdrawalDateOutput}}>
             <h2 class="card-header lighter">
               <span>
                 {{dataValues.name}}
@@ -128,7 +128,7 @@
               <div class="modal-body">
                 <div class="form-group">
                   <label class="heavier" for="subscription-price-edit-input">Price</label>
-                  <input type="number" step="0.01" class="form-control form-control-lg" id="subscription-price-edit-input" placeholder="Price">
+                  <input type="number" min="0.01" step="0.01" class="form-control form-control-lg" id="subscription-price-edit-input" placeholder="Price">
                 </div>
                 <div class="form-group">
                   <label class="heavier" for="subscription-frequency-edit-input">Frequency</label>

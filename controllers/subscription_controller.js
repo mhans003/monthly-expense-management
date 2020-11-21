@@ -40,6 +40,12 @@ router.post("/api/subscription", (req, res) => {
 
 //Update the subscription by taking in all the information from the update form. End the request so that the page subscription.handlebars can reload.
 router.put("/api/subscription", (req, res) => {
+  console.log(req.body.price);
+  console.log(req.body.frequency);
+  console.log(req.body.category);
+  console.log(req.body.withdrawalDate);
+  console.log(req.body.withdrawalDateOutput);
+  console.log(req.body.id);
   db.Subscription.update(
     {
       price: req.body.price,
