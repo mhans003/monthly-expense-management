@@ -38,6 +38,38 @@ router.post("/api/subscription", (req, res) => {
     });
 });
 
+//Update the subscription by taking in all the information from the update form. End the request so that the page subscription.handlebars can reload.
+router.put("/api/subscription", (req, res) => {
+  console.log(req.body.price);
+  console.log(req.body.frequency);
+  console.log(req.body.category);
+  console.log(req.body.withdrawalDate);
+  console.log(req.body.withdrawalDateOutput);
+  console.log(req.body.id);
+  db.Subscription.update(
+    {
+      price: req.body.price,
+      frequency: req.body.frequency,
+      category: req.body.category,
+      withdrawalDate: req.body.withdrawalDate,
+      withdrawalDateOutput: req.body.withdrawalDateOutput
+    },
+    {
+      where: {
+        id: req.body.id
+      }
+    }
+  )
+    .then(result => {
+      console.log(`Updated ${result}`);
+      res.end();
+    })
+    .catch(err => {
+      res.status(401).json(err);
+      console.log(err);
+    });
+});
+
 //Delete the subscription using the id of the subscription, sent over by the button for that subscription card.
 router.delete("/api/subscription", (req, res) => {
   //console.log("id clicked was " + JSON.stringify(req.body));
